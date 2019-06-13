@@ -91,7 +91,7 @@ the scheme_id_uri.
 
 The following documents are cited in this specification
 
-  * **[RFC_8216]**  
+  * **[RFC8216]**  
     IETF RFC 8216 “HTTP Live Streaming”, August 2017
 
   * **[ISO_23000_19]**  
@@ -110,7 +110,7 @@ The following documents are cited in this specification
     ID3.org, "The ID3 audio file data tagging format"
 
 
-[RFC_8216]: https://tools.ietf.org/html/rfc8216
+[RFC8216]: https://tools.ietf.org/html/rfc8216
 [ISO_23000_19]: http://www.iso.org/iso/catalogue_detail?csnumber=71975
 [ID3]: http://www.id3.org/Developer_Information
 [AV1]: https://aomedia.org/av1-bitstream-and-decoding-process-specification/
