@@ -7,19 +7,21 @@ Editors Draft, 25 June 2019
 
 ##### This version: 
 {:.no_toc }
-   https://aomediacodec.github.io/av1-id3/
+   [GitHub Version]
 
 ##### Issue tracking: 
 {:.no_toc }
-   [GitHub]  
+   [GitHub Issues]
 
 ##### Editors: 
 {:.no_toc }
 
    Krasimir Kolarov, kolarov@apple.com
+
    John Simmons, johnsim@microsoft.com 
 
 ##### Copyright
+{:.no_toc }
 Copyright 2019, The Alliance for Open Media
 
 Licensing information is available at http://aomedia.org/license/
@@ -29,7 +31,7 @@ The MATERIALS ARE PROVIDED “AS IS.” The Alliance for Open Media, its members
 ## Abstract
 {:.no_toc }
 
-How ID3 metadata is to be carried as timed metadata in Common Media Application Format (CMAF) compatible fragmented MP4 streams using Event Message ('emsg') boxes.
+How ID3 metadata can be carried as timed metadata in Common Media Application Format (CMAF) compatible fragmented MP4 streams using Event Message ('emsg') boxes.
 
 
 ## Contents
@@ -41,28 +43,33 @@ How ID3 metadata is to be carried as timed metadata in Common Media Application 
 
 ## Introduction
 
-HTTP Live Streaming (HLS) \[[RFC8216]\] supports the inclusion of timed metadata in ID3 format [ID3] in various container formats \[[TM-HLS]\].
+HTTP Live Streaming (HLS) \[[RFC8216]\] supports the inclusion of timed metadata in ID3 format \[[ID3]\] in various container formats, as described in \[[TM-HLS]\].
 
-A large ecosystem has built up around carrying timed ID3 metadata in HLS for applications such as ad delivery & audience measurement. Companies in this ecosystem include Disney, Sony, and Nielsen. There are many benefits to adopting CMAF for HLS media delivery, but without a specification for carrying ID3 as sparse timed metadata in CMAF, deployment by these companies is blocked.
+A large ecosystem has built up around carrying timed ID3 metadata in HLS for applications such as ad delivery & audience measurement. Companies in this ecosystem include Disney, Sony, and Nielsen. There are many benefits to adopting CMAF for HLS media delivery, but without a specification for carrying ID3 as sparse timed metadata in CMAF, deployment by companies in this ecosystem is blocked.
 
-This document describes how such ID3 metadata is carried as timed metadata in a CMAF-compatible fragmented MP4 (fMP4) stream \[[ISO_23000_19]\] as used by the HLS protocol.
+This specification describes how such ID3 metadata can be carried as timed metadata in a CMAF-compatible fragmented MP4 (fMP4) stream \[[ISO_23000_19]\] as used by the HLS protocol.
+
+## Conformance
+Conformance requirements are expressed with a combination of descriptive assertions and RFC 2119 terminology. The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in the normative parts of this document are to be interpreted as described in \[[RFC 2119]\]. For readability, these words do not appear in all uppercase letters in this specification.
 
 ## Overview
 
-Timed Metadata in a CMAF-compatible HLS stream is signaled via one or more Event Message boxes ('emsg') \[[ISO_23000_19]\] per segment. Version 1 of the Event Message box \[[ISO_23009_1]\] must be used. 
+Timed Metadata in a CMAF-compatible stream is signaled via one or more Event Message boxes ('emsg') \[[ISO_23000_19]\] per segment. Version 1 of the Event Message box \[[ISO_23009_1]\] must be used. 
 
 Event messages with the scheme specified in this document will identify boxes that carry ID3v2 metadata \[[ID3]\].
 
 
 ### Event Message Box ('emsg')
-
+{:.no_toc }
 
 #### Introduction
+{:.no_toc }
 
 One or more Event Message boxes ('emsg') \[[ISO_23000_19]\] can be included per segment. Version 1 of the Event Message box \[[ISO_23009_1]\] must be used. 
 
 
 #### Syntax
+{:.no_toc }
 
 For convenience, the follow box definition is reproduced from \[[ISO_23009_1]\], section 5.10.3.3.3. 
 
@@ -89,6 +96,7 @@ aligned(8) class DASHEventMessageBox extends FullBox('emsg', version, flags = 0)
 
 
 #### Semantics
+{:.no_toc }
 
 `scheme_id_uri` set to "https://aomedia.org/emsg/ID3" to identify ID3v2 metadata \[[ID3]\].
 
@@ -130,4 +138,6 @@ The following documents are cited in this specification.
 [ID3]: http://www.id3.org/Developer_Information
 [TM-HLS]: https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTTP_Live_Streaming_Metadata_Spec/Introduction/Introduction.html
 [ISO_23009_1]: https://www.iso.org/standard/65274.html
-[GitHub]: https://github.com/AOMediaCodec/av1-id3/issues
+[GitHub Issues]: https://github.com/AOMediaCodec/av1-id3/issues
+[GitHub Version]: https://aomediacodec.github.io/av1-id3/
+[RFC 2119]: https://tools.ietf.org/html/rfc2119
