@@ -16,8 +16,7 @@ Editors Draft, 25 June 2019
 ##### Editors: 
 {:.no_toc }
 
-   Krasimir Kolarov, kolarov@apple.com
-
+   Krasimir Kolarov, kolarov@apple.com; 
    John Simmons, johnsim@microsoft.com 
 
 ##### Copyright
@@ -59,7 +58,7 @@ Timed Metadata in a CMAF-compatible stream is signaled via one or more Event Mes
 Event messages with the scheme specified in this document will identify boxes that carry ID3v2 metadata \[[ID3]\].
 
 
-### Event Message Box ('emsg')
+### Carrying ID3 Metadata in an Event Message Box ('emsg')
 {:.no_toc }
 
 #### Introduction
@@ -111,7 +110,7 @@ aligned(8) class DASHEventMessageBox extends FullBox('emsg', version, flags = 0)
 The following documents are cited in this specification.
 
 #### Normative References
-
+{:.no_toc }
   * **\[[ISO_23000_19]\]**  
     International Organization for Standardization, "Information
     technology -- Multimedia application format (MPEG-A)
@@ -119,7 +118,7 @@ The following documents are cited in this specification.
     ISO/IEC 23000-19:2018(E), 2018, <http://www.iso.org/iso/catalogue_detail?csnumber=71975>.
 
 #### Informative References
-
+{:.no_toc }
   * **\[[RFC8216]\]**  
     IETF RFC 8216 "HTTP Live Streaming", R. Pantos, Ed. Apple, Inc. W. May, MLB Advanced Media, August 2017
 
