@@ -51,25 +51,25 @@ This specification describes how such ID3 metadata can be carried as timed metad
 ## Conformance
 Conformance requirements are expressed with a combination of descriptive assertions and RFC 2119 terminology. The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in the normative parts of this document are to be interpreted as described in \[[RFC 2119]\]. For readability, these words do not appear in all uppercase letters in this specification.
 
-## ID3 Metadata in a CMAF-compatible stream 
+## Timed Metadata in a CMAF-compatible stream 
 
-### Overview
+#### Overview
 
 Timed Metadata in a CMAF-compatible stream is signaled via one or more Event Message boxes ('emsg') \[[CMAF]\] per segment. Version 1 of the Event Message box \[[DASH]\] must be used. 
 
 Event messages with the scheme specified in this document will identify boxes that carry ID3v2 metadata \[[ID3]\].
 
 
-### Carrying ID3 Metadata in an Event Message Box
+#### ID3 Metadata in an Event Message Box
 
       
-#### Introduction
+##### Introduction
 {:.no_toc }
 
 One or more Event Message boxes ('emsg') \[[CMAF]\] can be included per segment. Version 1 of the Event Message box \[[DASH]\] must be used. 
 
 
-#### Syntax
+##### Syntax
 {:.no_toc }
 
 For convenience, the follow box definition is reproduced from \[[DASH]\], section 5.10.3.3.3. 
@@ -96,7 +96,7 @@ aligned(8) class DASHEventMessageBox extends FullBox('emsg', version, flags = 0)
 ~~~~~
 
 
-#### Semantics
+##### Semantics
 {:.no_toc }
 
 `scheme_id_uri` set to "https://aomedia.org/emsg/ID3" to identify ID3v2 metadata \[[ID3]\].
