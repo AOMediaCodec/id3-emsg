@@ -42,35 +42,37 @@ How ID3 metadata can be carried as timed metadata in Common Media Application Fo
 
 ## Introduction
 
-HTTP Live Streaming (HLS) \[[RFC8216]\] supports the inclusion of timed metadata in ID3 format \[[ID3]\] in various container formats, as described in \[[TM-HLS]\].
+HTTP Live Streaming (HLS) \[[HLS]\] supports the inclusion of timed metadata in ID3 format \[[ID3]\] in various container formats, as described in \[[TM-HLS]\].
 
 A large ecosystem has built up around carrying timed ID3 metadata in HLS for applications such as ad delivery & audience measurement. Companies in this ecosystem include Disney, Sony, and Nielsen. There are many benefits to adopting CMAF for HLS media delivery, but without a specification for carrying ID3 as sparse timed metadata in CMAF, deployment by companies in this ecosystem is blocked.
 
-This specification describes how such ID3 metadata can be carried as timed metadata in a CMAF-compatible fragmented MP4 (fMP4) stream \[[ISO_23000_19]\] as used by the HLS protocol.
+This specification describes how such ID3 metadata can be carried as timed metadata in a CMAF-compatible fragmented MP4 (fMP4) stream \[[CMAF]\] as used by the HLS protocol.
 
 ## Conformance
 Conformance requirements are expressed with a combination of descriptive assertions and RFC 2119 terminology. The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in the normative parts of this document are to be interpreted as described in \[[RFC 2119]\]. For readability, these words do not appear in all uppercase letters in this specification.
 
-## Overview
+## ID3 Metadata in a CMAF-compatible stream 
 
-Timed Metadata in a CMAF-compatible stream is signaled via one or more Event Message boxes ('emsg') \[[ISO_23000_19]\] per segment. Version 1 of the Event Message box \[[ISO_23009_1]\] must be used. 
+### Overview
+
+Timed Metadata in a CMAF-compatible stream is signaled via one or more Event Message boxes ('emsg') \[[CMAF]\] per segment. Version 1 of the Event Message box \[[DASH]\] must be used. 
 
 Event messages with the scheme specified in this document will identify boxes that carry ID3v2 metadata \[[ID3]\].
 
 
-## Carrying ID3 Metadata in an Event Message Box ('emsg')
+### Carrying ID3 Metadata in an Event Message Box
 
       
 #### Introduction
 {:.no_toc }
 
-One or more Event Message boxes ('emsg') \[[ISO_23000_19]\] can be included per segment. Version 1 of the Event Message box \[[ISO_23009_1]\] must be used. 
+One or more Event Message boxes ('emsg') \[[CMAF]\] can be included per segment. Version 1 of the Event Message box \[[DASH]\] must be used. 
 
 
 #### Syntax
 {:.no_toc }
 
-For convenience, the follow box definition is reproduced from \[[ISO_23009_1]\], section 5.10.3.3.3. 
+For convenience, the follow box definition is reproduced from \[[DASH]\], section 5.10.3.3.3. 
 
 ~~~~~ c
 aligned(8) class DASHEventMessageBox extends FullBox('emsg', version, flags = 0) {
@@ -99,10 +101,9 @@ aligned(8) class DASHEventMessageBox extends FullBox('emsg', version, flags = 0)
 
 `scheme_id_uri` set to "https://aomedia.org/emsg/ID3" to identify ID3v2 metadata \[[ID3]\].
 
-`value` may either be an absolute or relative user-specified URI which defines the semantics of the id field. Any relative URI is considered to be relative to the scheme_id_uri.
+`value` may either be an absolute or relative user-specified URI which defines the semantics of the id field. Any relative URI is considered to be relative to the `scheme_id_uri`.
 
 `message_data` contains complete ID3 version 2.4 data \[[ID3]\].
-
 
 
 ## References
@@ -111,32 +112,33 @@ The following documents are cited in this specification.
 
 #### Normative References
 {:.no_toc }
-  * **\[[ISO_23000_19]\]**  
-    International Organization for Standardization, "Information
-    technology -- Multimedia application format (MPEG-A)
+  * **\[[CMAF]\]**  
+    "Information technology -- Multimedia application format (MPEG-A)
     -- Part 19: Common media application format (CMAF) for segmented media",
     ISO/IEC 23000-19:2018(E), 2018, <http://www.iso.org/iso/catalogue_detail?csnumber=71975>.
 
 #### Informative References
 {:.no_toc }
-  * **\[[RFC8216]\]**  
-    IETF RFC 8216 "HTTP Live Streaming", R. Pantos, Ed. Apple, Inc. W. May, MLB Advanced Media, August 2017
-
-  * **\[[ISO_23009_1]\]**  
+  * **\[[DASH]\]**  
     International Organization for Standardization, "Information
     technology -- Dynamic adaptive streaming over HTTP (DASH)
     -- Part 1: Media presentation description and segment formats", ISO/IEC
     23009-1:2014(E): Draft third edition, 2018-07-26
 
+  * **\[[HLS]\]**  
+    "HTTP Live Streaming", R. Pantos, W. May, IETF RFC8216, August 2017, <https://tools.ietf.org/html/rfc8216>
+
   * **\[[ID3]\]**  
     ID3.org, "The ID3 audio file data tagging format", <http://www.id3.org/Developer_Information>.
 
+  * **\[[TM-HLS]\]**  
+    Apple Inc., "Timed Metadata for HTTP Live Streaming", <https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTTP_Live_Streaming_Metadata_Spec/Introduction/Introduction.html>.
 
-[RFC8216]: https://tools.ietf.org/html/rfc8216
-[ISO_23000_19]: http://www.iso.org/iso/catalogue_detail?csnumber=71975
+[HLS]: https://tools.ietf.org/html/rfc8216
+[CMAF]: http://www.iso.org/iso/catalogue_detail?csnumber=71975
 [ID3]: http://www.id3.org/Developer_Information
 [TM-HLS]: https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTTP_Live_Streaming_Metadata_Spec/Introduction/Introduction.html
-[ISO_23009_1]: https://www.iso.org/standard/65274.html
+[DASH]: https://www.iso.org/standard/65274.html
 [GitHub Issues]: https://github.com/AOMediaCodec/av1-id3/issues
 [GitHub Version]: https://aomediacodec.github.io/av1-id3/
 [RFC 2119]: https://tools.ietf.org/html/rfc2119
