@@ -60,6 +60,7 @@ Event messages with the scheme specified in this document will identify boxes th
 
 ### Carrying ID3 Metadata in an Event Message Box ('emsg')
 
+      
 #### Introduction
 {:.no_toc }
 
