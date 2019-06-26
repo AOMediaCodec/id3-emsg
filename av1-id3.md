@@ -58,7 +58,7 @@ Timed Metadata in a CMAF-compatible stream is signaled via one or more Event Mes
 Event messages with the scheme specified in this document will identify boxes that carry ID3v2 metadata \[[ID3]\].
 
 
-### Carrying ID3 Metadata in an Event Message Box ('emsg')
+## Carrying ID3 Metadata in an Event Message Box ('emsg')
 
       
 #### Introduction
