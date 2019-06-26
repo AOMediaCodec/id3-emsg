@@ -49,7 +49,7 @@ A large ecosystem has built up around carrying timed ID3 metadata in HLS for app
 This specification describes how such ID3 metadata can be carried as timed metadata in a CMAF-compatible fragmented MP4 (fMP4) stream \[[CMAF]\] as used by the HLS protocol.
 
 ## Conformance
-Conformance requirements are expressed with a combination of descriptive assertions and RFC 2119 terminology. The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in the normative parts of this document are to be interpreted as described in \[[RFC 2119]\]. For readability, these words do not appear in all uppercase letters in this specification.
+Conformance requirements are expressed with a combination of descriptive assertions and RFC 2119 terminology. The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in the normative parts of this document are to be interpreted as described in \[[RFC2119]\]. For readability, these words do not appear in all uppercase letters in this specification.
 
 ## Timed Metadata in a CMAF-compatible stream 
 
@@ -117,8 +117,8 @@ The following documents are cited in this specification.
     -- Part 19: Common media application format (CMAF) for segmented media",
     ISO/IEC 23000-19:2018(E), 2018, <http://www.iso.org/iso/catalogue_detail?csnumber=71975>.
 
-  * **\[[RFC2119]\]** 
-    Internet Engineering Task Force, "Key words for use in RFCs to Indicate Requirement Levels", S. Bradner, RFC2119, March 1997, <https://tools.ietf.org/html/rfc2119>
+  * **\[[RFC2119]\]**  
+    Internet Engineering Task Force, "Key words for use in RFCs to Indicate Requirement Levels", S. Bradner, RFC2119, March 1997, <https://tools.ietf.org/html/rfc2119>.
 
 #### Informative References
 {:.no_toc }
@@ -126,7 +126,7 @@ The following documents are cited in this specification.
     International Organization for Standardization, "Information
     technology -- Dynamic adaptive streaming over HTTP (DASH)
     -- Part 1: Media presentation description and segment formats", ISO/IEC
-    23009-1:2014(E): Draft third edition, 2018-07-26
+    23009-1:2014(E): Draft third edition, 2018-07-26, <https://www.iso.org/standard/65274.html>.
 
   * **\[[HLS]\]**  
     Internet Engineering Task Force, "HTTP Live Streaming", R. Pantos, W. May, RFC8216, August 2017, <https://tools.ietf.org/html/rfc8216>
@@ -144,4 +144,4 @@ The following documents are cited in this specification.
 [DASH]: https://www.iso.org/standard/65274.html
 [GitHub Issues]: https://github.com/AOMediaCodec/av1-id3/issues
 [GitHub Version]: https://aomediacodec.github.io/av1-id3/
-[RFC 2119]: https://tools.ietf.org/html/rfc2119
+[RFC2119]: https://tools.ietf.org/html/rfc2119
