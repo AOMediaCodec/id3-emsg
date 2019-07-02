@@ -117,17 +117,17 @@ The following documents are cited in this specification.
     -- Part 19: Common media application format (CMAF) for segmented media",
     ISO/IEC 23000-19:2018(E), 2018, <http://www.iso.org/iso/catalogue_detail?csnumber=71975>.
 
-  * **\[[RFC2119]\]**  
-    Internet Engineering Task Force, "Key words for use in RFCs to Indicate Requirement Levels", S. Bradner, RFC2119, March 1997, <https://tools.ietf.org/html/rfc2119>.
-
-#### Informative References
-{:.no_toc }
   * **\[[DASH]\]**  
     International Organization for Standardization, "Information
     technology -- Dynamic adaptive streaming over HTTP (DASH)
     -- Part 1: Media presentation description and segment formats", ISO/IEC
     23009-1:2014(E): Draft third edition, 2018-07-26, <https://www.iso.org/standard/65274.html>.
 
+  * **\[[RFC2119]\]**  
+    Internet Engineering Task Force, "Key words for use in RFCs to Indicate Requirement Levels", S. Bradner, RFC2119, March 1997, <https://tools.ietf.org/html/rfc2119>.
+
+#### Informative References
+{:.no_toc }
   * **\[[HLS]\]**  
     Internet Engineering Task Force, "HTTP Live Streaming", R. Pantos, W. May, RFC8216, August 2017, <https://tools.ietf.org/html/rfc8216>
 
