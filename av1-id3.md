@@ -105,6 +105,10 @@ aligned(8) class DASHEventMessageBox extends FullBox('emsg', version, flags = 0)
 
 `message_data` contains complete ID3 version 2.4 data \[[ID3]\].
 
+##### Signaling
+{:.no_toc }
+
+Files compliant to this specification should signal it using the brand 'aid3' as part of the list compatible brands in the file type box. Manifest formats using files compliant to this specification may signal these files using the following URN: "urn:aomedia:cmaf:id3".
 
 ## References
 
