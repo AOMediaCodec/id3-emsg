@@ -55,7 +55,7 @@ Conformance requirements are expressed with a combination of descriptive asserti
 
 #### Overview
 {:.no_toc }
-Timed Metadata in a CMAF-compatible stream is signaled via one or more Event Message boxes ('emsg') \[[CMAF]\] per segment. Version 1 of the Event Message box \[[DASH]\] must be used. 
+Timed Metadata in a CMAF-compatible stream is signaled via one or more Event Message boxes ('emsg') \[[CMAF]\] per segment.  
 
 Event messages with the scheme specified in this document will identify boxes that carry ID3v2 metadata \[[ID3]\].
 
