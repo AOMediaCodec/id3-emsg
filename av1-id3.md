@@ -105,6 +105,8 @@ aligned(8) class DASHEventMessageBox extends FullBox('emsg', version, flags = 0)
 
 `message_data` contains complete ID3 version 2.4 data \[[ID3]\].
 
+In general, ID3 don't carry a duration and in those cases the emsg duration field should be set to 0xFFFFFFFF. If in a particular case, the ID3 message carries a duration, it should be reflected in the emsg box.
+
 ##### Signaling
 {:.no_toc }
 
