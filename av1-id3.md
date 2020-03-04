@@ -44,7 +44,7 @@ How ID3 metadata can be carried as timed metadata in Common Media Application Fo
 
 HTTP Live Streaming (HLS) \[[HLS]\] supports the inclusion of timed metadata in ID3 format \[[ID3]\] in various container formats, as described in \[[TM-HLS]\].
 
-A large ecosystem has built up around carrying timed ID3 metadata in HLS for applications such as ad delivery & audience measurement. Companies in this ecosystem include Disney, Sony, and Nielsen. There are many benefits to adopting CMAF for HLS media delivery, but without a specification for carrying ID3 as sparse timed metadata in CMAF, deployment by companies in this ecosystem is blocked.
+A large ecosystem has built up around carrying timed ID3 metadata in HLS for applications such as ad delivery & audience measurement. There are many benefits to adopting CMAF for HLS media delivery, but without a specification for carrying ID3 as sparse timed metadata in CMAF, deployment by companies in this ecosystem is blocked.
 
 This specification describes how such ID3 metadata can be carried as timed metadata in a CMAF-compatible fragmented MP4 (fMP4) stream \[[CMAF]\] as used by the HLS protocol.
 
