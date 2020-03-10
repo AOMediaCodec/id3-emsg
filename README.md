@@ -13,7 +13,7 @@ Markdown][GFM]**.
 
   * generated automatically by GitHub Pages,
   * always reflects the current `HEAD`, and
-  * is automatically served here: https://aomediacodec.github.io/av1-id3/
+  * is automatically served here: https://aomediacodec.github.io/id3-emsg/
 
 **PDF output** must be generated locally, using the commercial HTML-to-PDF
 transformer **[Prince]** (formerly PrinceXML). The [non-commercial version] is
