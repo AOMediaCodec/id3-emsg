@@ -13,7 +13,7 @@ Markdown][GFM]**.
 
   * generated automatically by GitHub Pages,
   * always reflects the current `HEAD`, and
-  * is automatically served here: https://aomediacodec.github.io/av1-id3/
+  * is automatically served here: https://aomediacodec.github.io/id3-emsg/
 
 **PDF output** must be generated locally, using the commercial HTML-to-PDF
 transformer **[Prince]** (formerly PrinceXML). The [non-commercial version] is
@@ -58,10 +58,10 @@ to have git installed locally. Then:
 
      ~~~~~
      [remote "upstream"]
-         url = git@github.com:AOMediaCodec/av1-id3.git
+         url = git@github.com:AOMediaCodec/id3-esmg.git
          fetch = +refs/heads/*:refs/remotes/upstream/*
      [remote "origin"]
-         url = git@github.com:[GitHub username]/av1-id3.git
+         url = git@github.com:[GitHub username]/id3-emsg.git
          fetch = +refs/heads/*:refs/remotes/origin/*
      ~~~~~
 
@@ -106,7 +106,7 @@ to have git installed locally. Then:
 
   9. Now visit the project's page on GitHub.
 
-     https://github.com/AOMediaCodec/av1-id3
+     https://github.com/AOMediaCodec/id3-emsg
 
      GitHub sees that you've pushed a new branch to your fork, and offers to
      create a **pull request**. Follow the steps given. Annotate your pull
@@ -151,7 +151,7 @@ Those steps are detailed in the `av1-spec` GitHub project's README:
 https://github.com/AOMediaCodec/av1-spec#readme
 
 Ignore the steps related to Node, npm and Grunt. These are not needed because
-the `av1-id3` document is far simpler than the AV1 bitstream spec.
+the `id3-esmg` document is far simpler than the AV1 bitstream spec.
 
 
 ## Local PDF generation
