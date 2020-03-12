@@ -108,10 +108,9 @@ aligned(8) class DASHEventMessageBox extends FullBox('emsg', version, flags = 0)
 `message_data` MUST contain complete ID3 version 2.4 data \[[ID3]\].
 
 
-In general, ID3 don't carry a duration and in those cases the emsg duration field should be set to 0xFFFFFFFF. If in a particular case, the ID3 message carries a duration, it should be reflected in the emsg box.
+In general, ID3 don't carry a duration and in those cases the `event_duration` field should be set to 0xFFFFFFFF. If in a particular case, the ID3 message carries a duration, it should be reflected in the `event_duration` field.
 
-
-The presentation time must be within the time interval of the fragment.
+The `presentation_time` must be within the time interval of the fragment.
 
 The `id` field is not restricted in this version of the specification.
 
@@ -120,7 +119,7 @@ The `id` field is not restricted in this version of the specification.
 ##### Signaling
 {:.no_toc }
 
-Files compliant to this specification should signal it using the brand 'aid3' as part of the list compatible brands in the file type box. Manifest formats using files compliant to this specification may signal these files using the following URN: "urn:aomedia:cmaf:id3".
+Files compliant to this specification should signal it using the brand `aid3` as part of the list compatible brands in the file type box. Manifest formats using files compliant to this specification may signal these files using the following URN: `urn:aomedia:cmaf:id3`.
 
 ## References
 
