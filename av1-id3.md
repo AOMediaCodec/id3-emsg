@@ -105,7 +105,11 @@ aligned(8) class DASHEventMessageBox extends FullBox('emsg', version, flags = 0)
 
 `message_data` contains complete ID3 version 2.4 data \[[ID3]\].
 
+
+The presentation time must be within the time interval of the fragment.
+
 The `id` field is not restricted in this version of the specification.
+
 
 ##### Signaling
 {:.no_toc }
