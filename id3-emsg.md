@@ -101,7 +101,7 @@ aligned(8) class DASHEventMessageBox extends FullBox('emsg', version, flags = 0)
 ##### Semantics
 {:.no_toc }
 
-`scheme_id_uri` MUST be set to "https://aomedia.org/emsg/ID3" to identify ID3v2 metadata \[[ID3]\].
+`scheme_id_uri` MUST be set to `https://aomedia.org/emsg/ID3` to identify ID3v2 metadata \[[ID3]\].
 
 `value` may either be an absolute or relative user-specified URI which defines the semantics of the id field. Any relative URI is considered to be relative to the `scheme_id_uri`.
 
