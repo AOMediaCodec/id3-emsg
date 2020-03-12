@@ -158,6 +158,6 @@ The following documents are cited in this specification.
 [ID3]: http://www.id3.org/Developer_Information
 [TM-HLS]: https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTTP_Live_Streaming_Metadata_Spec/Introduction/Introduction.html
 [DASH]: https://www.iso.org/standard/65274.html
-[GitHub Issues]: https://github.com/AOMediaCodec/av1-id3/issues
-[GitHub Version]: https://aomediacodec.github.io/av1-id3/
+[GitHub Issues]: https://github.com/AOMediaCodec/id3-emsg/issues
+[GitHub Version]: https://aomediacodec.github.io/id3-emsg/
 [RFC2119]: https://tools.ietf.org/html/rfc2119
