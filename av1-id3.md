@@ -48,6 +48,8 @@ A large ecosystem has built up around carrying timed ID3 metadata in HLS for app
 
 This specification describes how such ID3 metadata can be carried as timed metadata in a CMAF-compatible fragmented MP4 (fMP4) stream \[[CMAF]\] as used by the HLS protocol.
 
+CMAF-compatible fragmented MP4 can also be used in DASH. The elements defined in this specification may also be used with DASH.
+
 ## Conformance
 Conformance requirements are expressed with a combination of descriptive assertions and RFC 2119 terminology. The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in the normative parts of this document are to be interpreted as described in \[[RFC2119]\]. For readability, these words do not appear in all uppercase letters in this specification.
 
