@@ -22,7 +22,7 @@ fully-functional but leaves a small watermark on the first page.
 Note that print-like output (PDF) requires styling not germane to HTML
 presentation, so this project generates a specially-annotated HTML version for
 use as PDF input. Nevertheless, both HTML and PDF use the same content file
-(`av1-id3.md`).
+(`id3-emsg.md`).
 
 
 ## GitHub workflow
@@ -40,8 +40,8 @@ to have git installed locally. Then:
      created:
 
      ~~~~~
-     git clone git@github.com:AOMediaCodec/av1-id3.git
-     cd av1-id3
+     git clone git@github.com:AOMediaCodec/id3-emsg.git
+     cd id3-emsg
      ~~~~~
 
      By default, your clone will point to the "master" branch.
@@ -67,7 +67,7 @@ to have git installed locally. Then:
 
      "origin" now points to your fork, and "upstream" points to its source.
 
-  4. Most work will be done in `av1-id3.md`. Before starting, make a
+  4. Most work will be done in `id3-emsg.md`. Before starting, make a
      **branch** in your cloned repo, to contain your changes. Choose a
      meaningful name.
 
@@ -83,7 +83,7 @@ to have git installed locally. Then:
   6. When ready, **add** your changes to the branch:
 
      ~~~~~
-     git add av1-id3.md
+     git add id3-emsg.md
      ~~~~~
 
   7. **Commit** your changes locally:
@@ -141,7 +141,7 @@ conflicts is usually quite easy, but it's good practice absent a reason not to.
 
 ## Building locally
 
-**The file `av1-id3.md` is quite readable, and you can probably work in it
+**The file `id3-emsg.md` is quite readable, and you can probably work in it
 without regenerating the HTML output.**
 
 Generating and previewing your changes locally before submitting them requires
@@ -160,7 +160,7 @@ Building the document locally writes output to an untracked/ignored directory
 `_site`. The PDF input file is `_site/pdf.html`.
 
 ~~~~~
-prince _site/pdf.html -o /tmp/av1-id3.pdf
+prince _site/pdf.html -o /tmp/id3-emsg.pdf
 ~~~~~
 
 

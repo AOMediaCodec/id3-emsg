@@ -13,10 +13,11 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Timed Metadata in Common Media Application Format (CMAF)
+title: Carriage of ID3 Timed Metadata in the Common Media Application Format (CMAF)
 description: >- # this means to ignore newlines until "baseurl:"
-  This document describes how ID3 metadata is carried as timed metadata in
-  CMAF-compatible fragmented MP4 (fMP4) stream as used by the HLS protocol.
+  This specification defines how ID3 metadata can be carried as timed metadata
+  in Common Media Application Format (CMAF) compatible fragmented MP4 streams
+  using Event Message (‘emsg’) boxes.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
