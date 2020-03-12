@@ -30,7 +30,7 @@ The MATERIALS ARE PROVIDED “AS IS.” The Alliance for Open Media, its members
 ## Abstract
 {:.no_toc }
 
-How ID3 metadata can be carried as timed metadata in Common Media Application Format (CMAF) compatible fragmented MP4 streams using Event Message ('emsg') boxes.
+This specification defines how ID3 metadata can be carried as timed metadata in Common Media Application Format (CMAF) compatible fragmented MP4 streams using Event Message ('emsg') boxes.
 
 
 ## Contents
