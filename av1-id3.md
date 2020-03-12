@@ -1,5 +1,5 @@
 
-Timed Metadata in the Common Media Application Format (CMAF)
+Carriage of ID3 Timed Metadata in the Common Media Application Format (CMAF)
 ============================================================
 {:.no_toc }
 
