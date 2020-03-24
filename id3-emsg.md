@@ -21,7 +21,7 @@ Editors Draft, 12 March 2020
 
 ##### Copyright
 {:.no_toc }
-Copyright 2019, The Alliance for Open Media
+Copyright 2020, The Alliance for Open Media
 
 Licensing information is available at http://aomedia.org/license/
 
