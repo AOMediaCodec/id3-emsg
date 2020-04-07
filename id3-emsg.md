@@ -3,7 +3,7 @@ Carriage of ID3 Timed Metadata in the Common Media Application Format (CMAF)
 ============================================================
 {:.no_toc }
 
-Editors Draft, 12 March 2020
+v1.0.0, 6 April 2020
 
 ##### This version: 
 {:.no_toc }
