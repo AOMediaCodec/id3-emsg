@@ -154,7 +154,7 @@ The following documents are cited in this specification.
 
 [HLS]: https://tools.ietf.org/html/rfc8216
 [CMAF]: http://www.iso.org/iso/catalogue_detail?csnumber=71975
-[ID3]: http://www.id3.org/Developer_Information
+[ID3]: https://id3.org/Developer%20Information
 [TM-HLS]: https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTTP_Live_Streaming_Metadata_Spec/Introduction/Introduction.html
 [DASH]: https://www.iso.org/standard/65274.html
 [GitHub Issues]: https://github.com/AOMediaCodec/id3-emsg/issues
