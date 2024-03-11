@@ -1,0 +1,17 @@
+name: Check PR
+on:
+    pull_request:
+
+jobs:
+  main:
+    name: Compile specification
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Install bikeshed
+        run: pipx install bikeshed
+
+      - name: Run bikeshed
+        run: bikeshed spec

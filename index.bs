@@ -1,0 +1,140 @@
+<pre class='metadata'>
+Group: AOM
+Status: FD
+Text Macro: SPECVERSION v1.0.0
+Title: Carriage of ID3 Timed Metadata in the Common Media Application Format (CMAF)
+URL: https://AOMediaCodec.github.io/id3-emsg
+Shortname: id3-esmg
+Editor: Krasimir Kolarov, kolarov@apple.com; 
+Editor: John Simmons, johnsim@microsoft.com 
+Abstract: This specification defines how ID3 metadata can be carried as timed metadata in Common Media Application Format (CMAF) compatible fragmented MP4 streams using Event Message ('emsg') boxes.
+Date: 2020-03-12
+Repository: AOMediaCodec/id3-esmg
+Inline Github Issues: full
+Boilerplate: property-index no, issues-index no, copyright yes
+Markup Shorthands: css no
+</pre>
+
+<pre class='biblio'>
+{
+	"HLS": {
+		"href": "https://tools.ietf.org/html/rfc8216",
+		"id": "HLS",
+		"title": "HTTP Live Streaming",
+		"status": "Standard",
+		"publisher": "IETF"
+	},
+	"CMAF": {
+		"href": "http://www.iso.org/iso/catalogue_detail?csnumber=71975",
+		"id": "CMAF",
+		"title": "Information technology — Multimedia application format (MPEG-A) — Part 19: Common media application format (CMAF) for segmented media",
+		"status": "Standard",
+		"publisher": "ISO"
+	},
+	"ID3": {
+		"href": "http://www.id3.org/Developer_Information",
+		"id": "ID3",
+		"title": "The ID3 audio file data tagging format",
+		"status": "Standard",
+		"publisher": "ID3.org"
+	},
+	"TM-HLS": {
+		"href": "https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTTP_Live_Streaming_Metadata_Spec/Introduction/Introduction.html",
+		"id": "TM-HLS",
+		"title": "Timed Metadata for HTTP Live Streaming",
+		"status": "Documentation",
+		"publisher": "Apple"
+	},
+	"DASH": {
+		"href": "https://www.iso.org/standard/65274.html",
+		"id": "DASH",
+		"title": "Information technology — Dynamic adaptive streaming over HTTP (DASH) — Part 1: Media presentation description and segment formats",
+		"status": "Standard",
+		"publisher": "ISO"
+	} 
+}
+</pre>
+
+<pre class="anchors">
+url: https://www.iso.org/standard/65274.html#; spec: DASH; type: dfn;
+	text: emsg
+	text: scheme_id_uri
+	text: value
+	text: message_data
+	text: timescale
+	text: event_duration
+	text: presentation_time_delta
+	text: presentation_time
+	text: id
+</pre>
+
+# Introduction # {#introduction}
+
+HTTP Live Streaming (HLS) [[HLS]] supports the inclusion of timed metadata in ID3 format [[ID3]] in various container formats, as described in [[TM-HLS]].
+
+A large ecosystem has built up around carrying timed ID3 metadata in HLS for applications such as ad delivery & audience measurement. There are many benefits to adopting CMAF for HLS media delivery, but without a specification for carrying ID3 as sparse timed metadata in CMAF, deployment by companies in this ecosystem is blocked.
+
+This specification describes how such ID3 metadata can be carried as timed metadata in a CMAF-compatible fragmented MP4 (fMP4) stream [[CMAF]] as used by the HLS protocol.
+
+CMAF-compatible fragmented MP4 can also be used in DASH. The elements defined in this specification may also be used with DASH.
+
+# Timed Metadata in a CMAF-compatible stream # {#timed-meta}
+
+## Overview ## {#meta-overview}
+
+Timed Metadata in a CMAF-compatible stream is signaled via one or more Event Message boxes (<code><a>emsg</a></code>) [[CMAF]] per segment.
+
+Event messages with the scheme specified in this document will identify boxes that carry ID3v2 metadata [[ID3]].
+
+## ID3 Metadata in an Event Message Box ## {#meta-emsg}
+
+### Introduction ### {#emsg-intro}
+
+One or more Event Message boxes (<code><a>emsg</a></code>) [[!CMAF]] can be included per segment. Version 1 of the Event Message box [[!DASH]] must be used. 
+
+### Syntax ### {#emsg-syntax}
+
+For convenience, the follow box definition is reproduced from [[DASH]], section 5.10.3.3.3. 
+
+```cpp
+aligned(8) class DASHEventMessageBox extends FullBox('emsg', version, flags = 0)
+{
+	if (version==0) {
+		string              scheme_id_uri;
+		string              value;
+		unsigned int(32)    timescale;
+		unsigned int(32)    presentation_time_delta;
+		unsigned int(32)    event_duration;
+		unsigned int(32)    id;
+	} else if (version==1) {
+		unsigned int(32)    timescale;
+		unsigned int(64)    presentation_time;
+		unsigned int(32)    event_duration;
+		unsigned int(32)    id;
+		string              scheme_id_uri;
+		string              value;
+	}
+	unsigned int(8) message_data[];
+}
+```
+
+### Semantics ### {#emsg-semantics}
+
+<a>scheme_id_uri</a> MUST be set to <dfn><code>https://aomedia.org/emsg/ID3</code></dfn> to identify ID3v2 metadata [[ID3]].
+
+<a>value</a> may either be an absolute or relative user-specified URI which defines the semantics of the id field.
+Any relative URI is considered to be relative to the <a>scheme_id_uri</a>.
+
+<a>message_data</a> MUST contain complete ID3 version 2.4 data [[ID3]].
+
+In general, ID3 don't carry a duration and in those cases the <a>event_duration</a> field should be set to <code>0xFFFFFFFF</code>.
+If in a particular case, the ID3 message carries a duration, it should be reflected in the <a>event_duration</a> field.
+
+The <a>presentation_time</a> must be within the time interval of the fragment.
+
+The <a>id</a> field is not restricted in this version of the specification.
+
+## Signaling ## {#meta-signaling}
+
+Files compliant to this specification should signal it using the brand <code><dfn>aid3</dfn></code> as part of the list compatible brands in the file type box.
+Manifest formats using files compliant to this specification may signal these files using the following URN: <dfn><code>urn:aomedia:cmaf:id3</code></dfn>.
