@@ -34,9 +34,9 @@ Markup Shorthands: css no
 	"ID3": {
 		"href": "http://www.id3.org/Developer_Information",
 		"id": "ID3",
-		"title": "...",
+		"title": "The ID3 audio file data tagging format",
 		"status": "Standard",
-		"publisher": "ID3"
+		"publisher": "ID3.org"
 	},
 	"TM-HLS": {
 		"href": "https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTTP_Live_Streaming_Metadata_Spec/Introduction/Introduction.html",
@@ -122,11 +122,13 @@ aligned(8) class DASHEventMessageBox extends FullBox('emsg', version, flags = 0)
 
 <a>scheme_id_uri</a> MUST be set to <dfn><code>https://aomedia.org/emsg/ID3</code></dfn> to identify ID3v2 metadata [[ID3]].
 
-<a>value</a> may either be an absolute or relative user-specified URI which defines the semantics of the id field. Any relative URI is considered to be relative to the <a>scheme_id_uri</a>.
+<a>value</a> may either be an absolute or relative user-specified URI which defines the semantics of the id field.
+Any relative URI is considered to be relative to the <a>scheme_id_uri</a>.
 
 <a>message_data</a> MUST contain complete ID3 version 2.4 data [[ID3]].
 
-In general, ID3 don't carry a duration and in those cases the <a>event_duration</a> field should be set to <code>0xFFFFFFFF</code>. If in a particular case, the ID3 message carries a duration, it should be reflected in the <a>event_duration</a> field.
+In general, ID3 don't carry a duration and in those cases the <a>event_duration</a> field should be set to <code>0xFFFFFFFF</code>.
+If in a particular case, the ID3 message carries a duration, it should be reflected in the <a>event_duration</a> field.
 
 The <a>presentation_time</a> must be within the time interval of the fragment.
 
@@ -134,4 +136,5 @@ The <a>id</a> field is not restricted in this version of the specification.
 
 ## Signaling ## {#meta-signaling}
 
-Files compliant to this specification should signal it using the brand <code><dfn>aid3</dfn></code> as part of the list compatible brands in the file type box. Manifest formats using files compliant to this specification may signal these files using the following URN: <dfn><code>urn:aomedia:cmaf:id3</code></dfn>.
+Files compliant to this specification should signal it using the brand <code><dfn>aid3</dfn></code> as part of the list compatible brands in the file type box.
+Manifest formats using files compliant to this specification may signal these files using the following URN: <dfn><code>urn:aomedia:cmaf:id3</code></dfn>.
