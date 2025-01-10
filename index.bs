@@ -47,7 +47,7 @@ Metadata Order: This version, !*, *
     "publisher": "Apple"
   },
   "DASH": {
-    "href": "https://www.iso.org/standard/65274.html",
+    "href": "https://www.iso.org/standard/83314.html",
     "id": "DASH",
     "title": "Information technology — Dynamic adaptive streaming over HTTP (DASH) — Part 1: Media presentation description and segment formats",
     "status": "Standard",
@@ -57,7 +57,7 @@ Metadata Order: This version, !*, *
 </pre>
 
 <pre class="anchors">
-url: https://www.iso.org/standard/65274.html#; spec: DASH; type: dfn;
+url: https://www.iso.org/standard/83314.html#; spec: DASH; type: dfn;
     text: DASHEventMessageBox
     text: emsg
     text: scheme_id_uri
