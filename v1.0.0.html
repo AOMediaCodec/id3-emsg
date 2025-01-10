@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Carriage of ID3 Timed Metadata in the Common Media Application Format (CMAF)</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="manifest" href="https://aomediacodec.github.io/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js"></script>
+  <!-- Helper script for the table of contents -->
+  <script>
+    $(document).ready(function() {
+      $("#markdown-toc > li").each(function() {
+          var content = $(this).children(":first").html();
+          if (content.indexOf("Annex") == 0) {
+              var annexID = content.substring(6, 7)
+              var items = $(this).find("li").add(this);
+
+              items.attr("data-annexid", annexID);
+              items.addClass("annex");
+          }
+          if (content.indexOf("Bibliography") == 0) {
+              $(this).find("li").add(this).addClass("bibliography");
+          }
+      });
+    });
+  </script>
+  <!-- assets/css/syntax-tango.css -->
+  <style>
+    pre.highlight { border: 1px solid #ccc }
+    .highlight .hll { background-color: #ffffcc }
+    .highlight .c { color: #8f5902; font-style: italic } /* Comment */
+    .highlight .err { color: #a40000; border: 1px solid #ef2929 } /* Error */
+    .highlight .g { color: #000000 } /* Generic */
+    .highlight .k { color: #204a87; font-weight: bold } /* Keyword */
+    .highlight .l { color: #000000 } /* Literal */
+    .highlight .n { color: #000000 } /* Name */
+    .highlight .o { color: #ce5c00; font-weight: bold } /* Operator */
+    .highlight .x { color: #000000 } /* Other */
+    .highlight .p { color: #000000; font-weight: bold } /* Punctuation */
+    .highlight .cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
+    .highlight .cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
+    .highlight .c1 { color: #8f5902; font-style: italic } /* Comment.Single */
+    .highlight .cs { color: #8f5902; font-style: italic } /* Comment.Special */
+    .highlight .gd { color: #a40000 } /* Generic.Deleted */
+    .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+    .highlight .gr { color: #ef2929 } /* Generic.Error */
+    .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+    .highlight .gi { color: #00A000 } /* Generic.Inserted */
+    .highlight .go { color: #000000; font-style: italic } /* Generic.Output */
+    .highlight .gp { color: #8f5902 } /* Generic.Prompt */
+    .highlight .gs { color: #000000; font-weight: bold } /* Generic.Strong */
+    .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+    .highlight .gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
+    .highlight .kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
+    .highlight .kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
+    .highlight .kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
+    .highlight .kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
+    .highlight .kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
+    .highlight .kt { color: #204a87; font-weight: bold } /* Keyword.Type */
+    .highlight .ld { color: #000000 } /* Literal.Date */
+    .highlight .m { color: #0000cf; font-weight: bold } /* Literal.Number */
+    .highlight .s { color: #4e9a06 } /* Literal.String */
+    .highlight .na { color: #c4a000 } /* Name.Attribute */
+    .highlight .nb { color: #204a87 } /* Name.Builtin */
+    .highlight .nc { color: #000000 } /* Name.Class */
+    .highlight .no { color: #000000 } /* Name.Constant */
+    .highlight .nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
+    .highlight .ni { color: #ce5c00 } /* Name.Entity */
+    .highlight .ne { color: #cc0000; font-weight: bold } /* Name.Exception */
+    .highlight .nf { color: #000000 } /* Name.Function */
+    .highlight .nl { color: #f57900 } /* Name.Label */
+    .highlight .nn { color: #000000 } /* Name.Namespace */
+    .highlight .nx { color: #000000 } /* Name.Other */
+    .highlight .py { color: #000000 } /* Name.Property */
+    .highlight .nt { color: #204a87; font-weight: bold } /* Name.Tag */
+    .highlight .nv { color: #000000 } /* Name.Variable */
+    .highlight .ow { color: #204a87; font-weight: bold } /* Operator.Word */
+    .highlight .w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
+    .highlight .mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
+    .highlight .mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
+    .highlight .mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
+    .highlight .mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
+    .highlight .sb { color: #4e9a06 } /* Literal.String.Backtick */
+    .highlight .sc { color: #4e9a06 } /* Literal.String.Char */
+    .highlight .sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
+    .highlight .s2 { color: #4e9a06 } /* Literal.String.Double */
+    .highlight .se { color: #4e9a06 } /* Literal.String.Escape */
+    .highlight .sh { color: #4e9a06 } /* Literal.String.Heredoc */
+    .highlight .si { color: #4e9a06 } /* Literal.String.Interpol */
+    .highlight .sx { color: #4e9a06 } /* Literal.String.Other */
+    .highlight .sr { color: #4e9a06 } /* Literal.String.Regex */
+    .highlight .s1 { color: #4e9a06 } /* Literal.String.Single */
+    .highlight .ss { color: #4e9a06 } /* Literal.String.Symbol */
+    .highlight .bp { color: #3465a4 } /* Name.Builtin.Pseudo */
+    .highlight .vc { color: #000000 } /* Name.Variable.Class */
+    .highlight .vg { color: #000000 } /* Name.Variable.Global */
+    .highlight .vi { color: #000000 } /* Name.Variable.Instance */
+    .highlight .il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+
+<h1 class="no_toc" id="carriage-of-id3-timed-metadata-in-the-common-media-application-format-cmaf">Carriage of ID3 Timed Metadata in the Common Media Application Format (CMAF)</h1>
+
+<p>v1.0.0, 6 April 2020</p>
+
+<h5 class="no_toc" id="this-version">This version:</h5>
+<p><a href="index.html">GitHub Version</a></p>
+
+<h5 class="no_toc" id="issue-tracking">Issue tracking:</h5>
+<p><a href="https://github.com/AOMediaCodec/id3-emsg/issues">GitHub Issues</a></p>
+
+<h5 class="no_toc" id="editors">Editors:</h5>
+
+<p>Krasimir Kolarov, kolarov@apple.com; 
+   John Simmons, johnsim@microsoft.com</p>
+
+<h5 class="no_toc" id="copyright">Copyright</h5>
+<p>Copyright 2020, The Alliance for Open Media</p>
+
+<p>Licensing information is available at http://aomedia.org/license/</p>
+
+<p>The MATERIALS ARE PROVIDED “AS IS.” The Alliance for Open Media, its members, and its contributors expressly disclaim any warranties (express, implied, or otherwise), including implied warranties of merchantability, non-infringement, fitness for a particular purpose, or title, related to the materials. The entire risk as to implementing or otherwise using the materials is assumed by the implementer and user. IN NO EVENT WILL THE ALLIANCE FOR OPEN MEDIA, ITS MEMBERS, OR CONTRIBUTORS BE LIABLE TO ANY OTHER PARTY FOR LOST PROFITS OR ANY FORM OF INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF ANY CHARACTER FROM ANY CAUSES OF ACTION OF ANY KIND WITH RESPECT TO THIS DELIVERABLE OR ITS GOVERNING AGREEMENT, WHETHER BASED ON BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE, AND WHETHER OR NOT THE OTHER MEMBER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+<h2 class="no_toc" id="abstract">Abstract</h2>
+
+<p>This specification defines how ID3 metadata can be carried as timed metadata in Common Media Application Format (CMAF) compatible fragmented MP4 streams using Event Message (‘emsg’) boxes.</p>
+
+<h2 class="no_toc" id="contents">Contents</h2>
+
+<ul id="markdown-toc">
+  <li><a href="index.html#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="index.html#conformance" id="markdown-toc-conformance">Conformance</a></li>
+  <li><a href="index.html#timed-metadata-in-a-cmaf-compatible-stream" id="markdown-toc-timed-metadata-in-a-cmaf-compatible-stream">Timed Metadata in a CMAF-compatible stream</a></li>
+  <li><a href="index.html#references" id="markdown-toc-references">References</a></li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>HTTP Live Streaming (HLS) [<a href="https://tools.ietf.org/html/rfc8216">HLS</a>] supports the inclusion of timed metadata in ID3 format [<a href="https://id3.org/Developer%20Information">ID3</a>] in various container formats, as described in [<a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTTP_Live_Streaming_Metadata_Spec/Introduction/Introduction.html">TM-HLS</a>].</p>
+
+<p>A large ecosystem has built up around carrying timed ID3 metadata in HLS for applications such as ad delivery &amp; audience measurement. There are many benefits to adopting CMAF for HLS media delivery, but without a specification for carrying ID3 as sparse timed metadata in CMAF, deployment by companies in this ecosystem is blocked.</p>
+
+<p>This specification describes how such ID3 metadata can be carried as timed metadata in a CMAF-compatible fragmented MP4 (fMP4) stream [<a href="http://www.iso.org/iso/catalogue_detail?csnumber=71975">CMAF</a>] as used by the HLS protocol.</p>
+
+<p>CMAF-compatible fragmented MP4 can also be used in DASH. The elements defined in this specification may also be used with DASH.</p>
+
+<h2 id="conformance">Conformance</h2>
+<p>Conformance requirements are expressed with a combination of descriptive assertions and RFC 2119 terminology. The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in the normative parts of this document are to be interpreted as described in [<a href="https://tools.ietf.org/html/rfc2119">RFC2119</a>]. For readability, these words do not appear in all uppercase letters in this specification.</p>
+
+<h2 id="timed-metadata-in-a-cmaf-compatible-stream">Timed Metadata in a CMAF-compatible stream</h2>
+
+<h4 class="no_toc" id="overview">Overview</h4>
+<p>Timed Metadata in a CMAF-compatible stream is signaled via one or more Event Message boxes (‘emsg’) [<a href="http://www.iso.org/iso/catalogue_detail?csnumber=71975">CMAF</a>] per segment.</p>
+
+<p>Event messages with the scheme specified in this document will identify boxes that carry ID3v2 metadata [<a href="https://id3.org/Developer%20Information">ID3</a>].</p>
+
+<h4 class="no_toc" id="id3-metadata-in-an-event-message-box">ID3 Metadata in an Event Message Box</h4>
+
+<h5 class="no_toc" id="introduction-1">Introduction</h5>
+
+<p>One or more Event Message boxes (‘emsg’) [<a href="http://www.iso.org/iso/catalogue_detail?csnumber=71975">CMAF</a>] can be included per segment. Version 1 of the Event Message box [<a href="https://www.iso.org/standard/65274.html">DASH</a>] must be used.</p>
+
+<h5 class="no_toc" id="syntax">Syntax</h5>
+
+<p>For convenience, the follow box definition is reproduced from [<a href="https://www.iso.org/standard/65274.html">DASH</a>], section 5.10.3.3.3.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">aligned</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="n">class</span> <span class="n">DASHEventMessageBox</span> <span class="n">extends</span> <span class="nf">FullBox</span><span class="p">(</span><span class="err">'</span><span class="n">emsg</span><span class="err">'</span><span class="p">,</span> <span class="n">version</span><span class="p">,</span> <span class="n">flags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">version</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">string</span>              <span class="n">scheme_id_uri</span><span class="p">;</span>
+        <span class="n">string</span>              <span class="n">value</span><span class="p">;</span>
+        <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>    <span class="n">timescale</span><span class="p">;</span>
+        <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>    <span class="n">presentation_time_delta</span><span class="p">;</span>
+        <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>    <span class="n">event_duration</span><span class="p">;</span>
+        <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>    <span class="n">id</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">version</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>    <span class="n">timescale</span><span class="p">;</span>
+        <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>    <span class="n">presentation_time</span><span class="p">;</span>
+        <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>    <span class="n">event_duration</span><span class="p">;</span>
+        <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>    <span class="n">id</span><span class="p">;</span>
+        <span class="n">string</span>              <span class="n">scheme_id_uri</span><span class="p">;</span>
+        <span class="n">string</span>              <span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="n">message_data</span><span class="p">[];</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h5 class="no_toc" id="semantics">Semantics</h5>
+
+<p><code class="language-plaintext highlighter-rouge">scheme_id_uri</code> MUST be set to <code class="language-plaintext highlighter-rouge">https://aomedia.org/emsg/ID3</code> to identify ID3v2 metadata [<a href="https://id3.org/Developer%20Information">ID3</a>].</p>
+
+<p><code class="language-plaintext highlighter-rouge">value</code> may either be an absolute or relative user-specified URI which defines the semantics of the id field. Any relative URI is considered to be relative to the <code class="language-plaintext highlighter-rouge">scheme_id_uri</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">message_data</code> MUST contain complete ID3 version 2.4 data [<a href="https://id3.org/Developer%20Information">ID3</a>].</p>
+
+<p>In general, ID3 don’t carry a duration and in those cases the <code class="language-plaintext highlighter-rouge">event_duration</code> field should be set to 0xFFFFFFFF. If in a particular case, the ID3 message carries a duration, it should be reflected in the <code class="language-plaintext highlighter-rouge">event_duration</code> field.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">presentation_time</code> must be within the time interval of the fragment.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">id</code> field is not restricted in this version of the specification.</p>
+
+<h5 class="no_toc" id="signaling">Signaling</h5>
+
+<p>Files compliant to this specification should signal it using the brand <code class="language-plaintext highlighter-rouge">aid3</code> as part of the list compatible brands in the file type box. Manifest formats using files compliant to this specification may signal these files using the following URN: <code class="language-plaintext highlighter-rouge">urn:aomedia:cmaf:id3</code>.</p>
+
+<h2 id="references">References</h2>
+
+<p>The following documents are cited in this specification.</p>
+
+<h4 class="no_toc" id="normative-references">Normative References</h4>
+<ul>
+  <li>
+    <p><strong>[<a href="http://www.iso.org/iso/catalogue_detail?csnumber=71975">CMAF</a>]</strong><br />
+International Organization for Standardization, “Information technology – Multimedia application format (MPEG-A)
+– Part 19: Common media application format (CMAF) for segmented media”,
+ISO/IEC 23000-19:2018(E), 2018, <a href="http://www.iso.org/iso/catalogue_detail?csnumber=71975">http://www.iso.org/iso/catalogue_detail?csnumber=71975</a>.</p>
+  </li>
+  <li>
+    <p><strong>[<a href="https://www.iso.org/standard/65274.html">DASH</a>]</strong><br />
+International Organization for Standardization, “Information
+technology – Dynamic adaptive streaming over HTTP (DASH)
+– Part 1: Media presentation description and segment formats”, ISO/IEC
+23009-1:2014(E): Draft third edition, 2018-07-26, <a href="https://www.iso.org/standard/65274.html">https://www.iso.org/standard/65274.html</a>.</p>
+  </li>
+  <li>
+    <p><strong>[<a href="https://tools.ietf.org/html/rfc2119">RFC2119</a>]</strong><br />
+Internet Engineering Task Force, “Key words for use in RFCs to Indicate Requirement Levels”, S. Bradner, RFC2119, March 1997, <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>.</p>
+  </li>
+</ul>
+
+<h4 class="no_toc" id="informative-references">Informative References</h4>
+<ul>
+  <li>
+    <p><strong>[<a href="https://tools.ietf.org/html/rfc8216">HLS</a>]</strong><br />
+Internet Engineering Task Force, “HTTP Live Streaming”, R. Pantos, W. May, RFC8216, August 2017, <a href="https://tools.ietf.org/html/rfc8216">https://tools.ietf.org/html/rfc8216</a></p>
+  </li>
+  <li>
+    <p><strong>[<a href="https://id3.org/Developer%20Information">ID3</a>]</strong><br />
+ID3.org, “The ID3 audio file data tagging format”, <a href="http://www.id3.org/Developer_Information">http://www.id3.org/Developer_Information</a>.</p>
+  </li>
+  <li>
+    <p><strong>[<a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTTP_Live_Streaming_Metadata_Spec/Introduction/Introduction.html">TM-HLS</a>]</strong><br />
+Apple Inc., “Timed Metadata for HTTP Live Streaming”, <a href="https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTTP_Live_Streaming_Metadata_Spec/Introduction/Introduction.html">https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HTTP_Live_Streaming_Metadata_Spec/Introduction/Introduction.html</a>.</p>
+  </li>
+</ul>
+
+
+      </div>
+    </div>
+  </div>
+  <script>
+    anchors.options.visible = 'always';
+    anchors.add();
+  </script>
+</body>
+</html>
