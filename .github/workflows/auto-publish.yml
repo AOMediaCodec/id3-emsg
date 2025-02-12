@@ -32,8 +32,6 @@ jobs:
           bikeshed spec
           mkdir dist
           cp *.html dist
-          cp -r v?.?.?_files dist
-          cp -r images dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
